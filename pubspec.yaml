@@ -1,0 +1,6 @@
+name: tictactoe
+author: Jermaine Oppong
+description: A Tic Tac Toe game written in Dart.
+dependencies:
+  browser: any
+  unittest: any
