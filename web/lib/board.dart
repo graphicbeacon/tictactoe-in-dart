@@ -1,4 +1,4 @@
-library tictactoe;
+library tictactoe.board;
 
 import 'dart:html';
 import 'cell.dart';
@@ -29,7 +29,10 @@ class Board {
     var div = new DivElement()
            ..className = _BOARDCLASS;
     
-    for(Cell cell in _cells) {
+    // highlight first cell
+    _cells[0].setHighlight();
+    
+    for (Cell cell in _cells) {
       // Add mouse hover event
       cell.cell.onMouseOver.listen(mouseOverEventCallback);
       
@@ -45,7 +48,7 @@ class Board {
     highlightSelectedCell(cell.id);
   }
   
-  void highlightSelectedCell(String cellId) {
+  void highlightSelectedCell (String cellId) {
     
     _cells.forEach((Cell cell) {
 
@@ -56,6 +59,10 @@ class Board {
       }
       
     });
+  }
+  
+  Cell getActiveCell() {
+    return _cells.singleWhere((Cell cell) => cell.isActive == true);
   }
   
 }

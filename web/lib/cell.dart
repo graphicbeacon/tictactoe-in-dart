@@ -1,4 +1,4 @@
-library tictactoe;
+library tictactoe.cell;
 
 import 'dart:html';
 
@@ -7,6 +7,7 @@ class Cell {
   final int COL;
   final String _CELL_CLASS = 'board__cell';
   final String _CELL_HIGHLIGHT_CLASS = 'cell--highlighted';
+  bool isActive = false;
   
   InputElement cell = new InputElement();
   
@@ -27,10 +28,12 @@ class Cell {
   
   void removeHighlight() {
     cell.classes.remove(_CELL_HIGHLIGHT_CLASS);  
+    isActive = false;
   }
   
   void setHighlight() {
-    cell.classes.add(_CELL_HIGHLIGHT_CLASS);  
+    isActive = true;
+    cell.classes.add(_CELL_HIGHLIGHT_CLASS);
   }
   
   void paint(token) {
