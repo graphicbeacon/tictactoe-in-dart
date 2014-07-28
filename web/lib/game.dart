@@ -1,9 +1,11 @@
-library tictactoe.game;
+library tictactoe;
 
 import 'dart:html';
-import 'board.dart';
-import 'gameplayer.dart';
-import 'controller.dart';
+
+part 'cell.dart';
+part 'board.dart';
+part 'controller.dart';
+part 'gameplayer.dart';
 
 class Game {
 

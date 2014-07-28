@@ -1,7 +1,4 @@
-library tictactoe.board;
-
-import 'dart:html';
-import 'cell.dart';
+part of tictactoe;
 
 class Board {
   

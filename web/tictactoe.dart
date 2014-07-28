@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'lib/game.dart';
 
 void main() {

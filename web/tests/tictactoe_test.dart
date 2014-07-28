@@ -1,10 +1,7 @@
-library tictactoe;
-
 import 'dart:html';
 import 'package:unittest/unittest.dart';
 
-import '../lib/board.dart';
-import '../lib/controller.dart';
+import '../lib/game.dart';
 
 void main() {
   

@@ -1,6 +1,4 @@
-library tictactoe.controller;
-
-import 'dart:html';
+part of tictactoe;
 
 class Controller {
   
