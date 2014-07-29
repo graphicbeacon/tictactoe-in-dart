@@ -9,7 +9,7 @@ part 'gameplayer.dart';
 
 class Game {
 
-    final DivElement _board = new Board().generate();
+    final Board _board = new Board();
     final List<List> _algorithms = [[1,2,3], [4,5,6], [7,8,9], [1,5,9], [3,5,7]];
     final List<Gameplayer> _players = new List<Gameplayer>(2);
         
@@ -28,7 +28,8 @@ class Game {
     void start() {
 
       // Insert into page
-      document.body.children.insert(1, _board);
+      document.body.children.insert(1, _board.generate());
+      
     }
     
     void switchPlayer() {

@@ -45,17 +45,30 @@ class Board {
     highlightSelectedCell(cell.id);
   }
   
-  void highlightSelectedCell (String cellId) {
+  void disableCells() {
     
     _cells.forEach((Cell cell) {
-
-      if(cell.cell.id == cellId) {
-        cell.setHighlight();
-      } else {
-        cell.removeHighlight();
-      }
-      
+      cell.disable();
     });
+  }
+  
+  void resetBoard() {
+
+    _cells.forEach((Cell cell) {
+      cell.reset();
+    });
+  }
+  
+  void highlightSelectedCell (String cellId) {
+    
+    getActiveCell()..removeHighlight();
+    
+    _cells.singleWhere((Cell cell) => cell.cell.id == cellId)..setHighlight();
+
+  }
+  
+  void paintSelectedCell (int cellIndex, String playerToken) {
+    _cells[cellIndex].paint(playerToken);
   }
   
   Cell getActiveCell() {

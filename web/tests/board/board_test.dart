@@ -1,7 +1,6 @@
 import 'dart:html';
 import 'package:unittest/unittest.dart';
-
-import '../lib/game.dart';
+import '../../lib/game.dart';
 
 void main() {
   
@@ -33,5 +32,5 @@ void main() {
       assert(document.querySelector('.board__cell:nth-child(2)').className.contains('cell--highlighted'));
       
   });
+  
 }
-

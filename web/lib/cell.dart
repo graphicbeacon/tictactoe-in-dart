@@ -13,7 +13,7 @@ class Cell {
   
   Cell(this.ROW, this.COL) {
     cell..type = 'button'
-        ..id = ROW.toString() + '_' + COL.toString()
+        ..id = '_${ROW}_${COL}'
         ..className = _CELL_CLASS; 
   }
   
@@ -38,11 +38,11 @@ class Cell {
     cell.classes.add(_CELL_HIGHLIGHT_CLASS);
   }
   
-  void paint(String token) {
+  void paint(String paintToken) {
+    
     if (token != null) return;
-    
-    cell.value = this.token = token;
-    
+        
+    cell.value = token = paintToken;
     disable();
   }
 }
