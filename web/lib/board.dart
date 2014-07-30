@@ -6,9 +6,7 @@ class Board {
   final int _COLS = 3;
   final String _BOARDCLASS = 'board';
   
-  List<Cell> _cells = new List<Cell>();
-  
-  get cellsLength => _cells.length;
+  List<Cell> cells = new List<Cell>();
   
   Board() {
     _createCells();
@@ -17,7 +15,7 @@ class Board {
   void _createCells() {
     for(int row = 0; row < _ROWS; row++) {
       for(int col = 0; col < _COLS; col++) {
-        _cells.add(new Cell(row, col));
+        cells.add(new Cell(row, col));
       }
     }
   }
@@ -27,9 +25,9 @@ class Board {
            ..className = _BOARDCLASS;
     
     // highlight first cell
-    _cells[0].setHighlight();
+    cells[0].setHighlight();
     
-    for (Cell cell in _cells) {
+    for (Cell cell in cells) {
       // Add mouse hover event
       cell.cell.onMouseOver.listen(mouseOverEventCallback);
       
@@ -47,14 +45,14 @@ class Board {
   
   void disableCells() {
     
-    _cells.forEach((Cell cell) {
+    cells.forEach((Cell cell) {
       cell.disable();
     });
   }
   
-  void resetBoard() {
+  void reset() {
 
-    _cells.forEach((Cell cell) {
+    cells.forEach((Cell cell) {
       cell.reset();
     });
   }
@@ -63,16 +61,16 @@ class Board {
     
     getActiveCell()..removeHighlight();
     
-    _cells.singleWhere((Cell cell) => cell.cell.id == cellId)..setHighlight();
+    cells.singleWhere((Cell cell) => cell.cell.id == cellId)..setHighlight();
 
   }
   
   void paintSelectedCell (int cellIndex, String playerToken) {
-    _cells[cellIndex].paint(playerToken);
+    cells[cellIndex].paint(playerToken);
   }
   
   Cell getActiveCell() {
-    return _cells.singleWhere((Cell cell) => cell.isActive == true);
+    return cells.singleWhere((Cell cell) => cell.isActive == true);
   }
   
 }

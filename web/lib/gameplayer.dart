@@ -1,10 +1,10 @@
 part of tictactoe;
 
 class Gameplayer {
-  final int playerNumber;
-  final String playerToken;
+  final int number;
+  final String token;
   int numberOfWins = 0;
   
-  Gameplayer(this.playerNumber, this.playerToken);
+  Gameplayer(this.number, this.token);
   
 }

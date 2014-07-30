@@ -9,7 +9,7 @@ void main() {
   
   test("Generates 9 cells", () {
     
-      assert(board.cellsLength == 9);
+      assert(board.cells.length == 9);
       
   });
   
