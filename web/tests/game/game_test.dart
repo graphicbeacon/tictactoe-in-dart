@@ -3,7 +3,7 @@ import '../../lib/game.dart';
 
 void main () {
   
-  var game = new Game();
+  Game game = new Game();
   
   test("Initialises two players", () {
     
@@ -13,17 +13,18 @@ void main () {
   
   test("Sets O token", () {
     
-    var cell1 = game.board.cells[0];
-        cell1.paint('O');
+    Cell cell1 = game.board.cells[0]
+                 ..paint('O');
         
     expect('O', cell1.cell.value);
+    
   });
   
   test("Confirms win and updates players number of wins", () {
     
-    var game2 = new Game();
-    var player1 = game2.players[0];
-    var player2 = game2.players[1];
+    Game game2 = new Game();
+    Gameplayer player1 = game2.players[0];
+    Gameplayer player2 = game2.players[1];
 
     game2.updateGameState(0, player1.token);
     game2.updateGameState(3, player2.token);
@@ -38,9 +39,9 @@ void main () {
   
   test("Game draws when there are no winning combinations", () {
     
-    var game3 = new Game();
-    var player1 = game3.players[0];
-    var player2 = game3.players[1];
+    Game game3 = new Game();
+    Gameplayer player1 = game3.players[0];
+    Gameplayer player2 = game3.players[1];
 
     game3.updateGameState(0, player1.token);
     game3.updateGameState(1, player2.token);
@@ -53,5 +54,6 @@ void main () {
     game3.updateGameState(8, player1.token);
     
     assert(game3.isDraw == true);
+    
   });
 }

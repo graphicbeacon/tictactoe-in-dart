@@ -4,7 +4,7 @@ import '../../lib/game.dart';
 
 void main() {
   
-  var board = new Board();
+  Board board = new Board();
   DivElement generatedBoard = new Board().generate();
   
   test("Generates 9 cells", () {
@@ -25,7 +25,7 @@ void main() {
   
   test("Removes and adds highlighted class to selected cell", () {
      
-      var e = new Event.eventType('MouseEvent', 'mouseover');
+      Event e = new Event.eventType('MouseEvent', 'mouseover');
       
       document.querySelector('.board__cell:nth-child(2)').dispatchEvent(e);
       
