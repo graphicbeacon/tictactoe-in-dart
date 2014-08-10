@@ -27,20 +27,17 @@ class Board {
     // highlight first cell
     cells[0].setHighlight();
     
-    for (Cell cell in cells) {
-      // Add mouse hover event
-      cell.cell.onMouseOver.listen(mouseOverEventCallback);
-      
-      div.children.add(cell.cell);
+    for(int i = 0; i < cells.length; i++) {
+       // Add mouse hover event
+       cells[i]..index = i
+               ..cell.onMouseOver.listen((MouseEvent mouseover) {
+                   highlightSelectedCell(cells[i].index);
+               });
+       
+       div.children.add(cells[i].cell);
     }
     
     return div;
-  }
-  
-  void mouseOverEventCallback (MouseEvent mouseover) {
-    var cell = mouseover.target as InputElement;
-    
-    highlightSelectedCell(cell.id);
   }
   
   void disableCells() {
@@ -57,11 +54,11 @@ class Board {
     });
   }
   
-  void highlightSelectedCell (String cellId) {
+  void highlightSelectedCell (int cellIndex) {
     
     getActiveCell()..removeHighlight();
     
-    cells.singleWhere((Cell cell) => cell.cell.id == cellId)..setHighlight();
+    cells.singleWhere((Cell cell) => cell.index == cellIndex)..setHighlight();
 
   }
   

@@ -8,6 +8,7 @@ class Cell {
   
   String token;
   bool isActive = false;
+  int index;
   
   InputElement cell = new InputElement();
   
