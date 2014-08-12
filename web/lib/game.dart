@@ -36,13 +36,10 @@ class Game extends Object with Joypad {
       // Insert into page
       document.body.children.insert(1, board.generate());
       
-      setButtonEvents();
-      joypadButtonPressListener();
+      setButtonEvents(joypadButtonPressListener);
     }
     
-    joypadButtonPressListener() {
-      
-      window.on['joypadButtonPressed'].listen((dynamic joypadButtonPressed) {
+    void joypadButtonPressListener(dynamic joypadButtonPressed) {
 
         int highlightedCellIndex = board.getActiveCell().index;
             
@@ -93,8 +90,6 @@ class Game extends Object with Joypad {
             break;
             
         }
-        
-      });
       
     }
     
