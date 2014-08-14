@@ -24,7 +24,7 @@ class Game extends Object with Joypad {
       board.cells.forEach((Cell cell) {
         cell.cell.onClick.listen((MouseEvent clickEvent) {
           
-          if(cell.isActive == true || cell.cell.disabled == true) return;
+          if(cell.cell.disabled == true) return;
           
           updateGameState(cell.index, players[_currentPlayer].token);
         });
@@ -47,33 +47,25 @@ class Game extends Object with Joypad {
           
           case 'BUTTON_RIGHT':
             
-            if (highlightedCellIndex == (board.cells.length - 1)) return;
-            
-            board.highlightSelectedCell(board.getActiveCell().index + 1);
+            if (highlightedCellIndex < (board.cells.length - 1)) board.highlightSelectedCell(board.getActiveCell().index + 1);
             
             break;
             
           case 'BUTTON_LEFT':
             
-            if (highlightedCellIndex == 0) return;
-            
-            board.highlightSelectedCell(board.getActiveCell().index - 1);
+            if (highlightedCellIndex > 0) board.highlightSelectedCell(board.getActiveCell().index - 1);
             
             break;
             
           case 'BUTTON_UP':
             
-            if (highlightedCellIndex < 3) return;
-            
-            board.highlightSelectedCell(board.getActiveCell().index - 3);
+            if (highlightedCellIndex >= 3) board.highlightSelectedCell(board.getActiveCell().index - 3);
             
             break;
             
           case 'BUTTON_DOWN':
             
-            if (highlightedCellIndex > 5) return;
-            
-            board.highlightSelectedCell(board.getActiveCell().index + 3);
+            if (highlightedCellIndex <= 5) board.highlightSelectedCell(board.getActiveCell().index + 3);
             
             break;
             
@@ -122,7 +114,7 @@ class Game extends Object with Joypad {
 
           var playerNumber = _currentPlayer + 1;
 
-          //window.alert('the winner is player ${playerNumber}');
+          window.alert('the winner is player ${playerNumber}');
 
           print('the winner is player ${playerNumber}');
 
