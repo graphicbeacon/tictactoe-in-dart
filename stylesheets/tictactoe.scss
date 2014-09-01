@@ -1,0 +1,67 @@
+@import '_base/mixins';
+
+html,body {
+  height: 100%;
+}
+
+body {
+  background-color: #001f3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  
+  .preloader {
+    text-align: center;
+  }
+  
+  &.loaded .preloader {
+    display: none;
+  }
+}
+
+.board{
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.board__cell {
+  background-color: #0074d9;
+  border: 0 none;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Century Gothic', 'Open Sans', 'Montserrat', Helvetica, sans-serif;
+  font-size: 70px;
+  height: 30%;
+  line-height: 30%;
+  width: 31%;
+
+  -webkit-appearance: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  
+  &.cell--highlighted {
+    border-color: rgba(255, 255, 255, 0.4);
+    border-style: solid;
+    @include animation('blinker .75s linear 0s infinite');
+  }
+  
+  &.cell--winner {
+    color: #ffdc00;
+  }
+}
+
+// Keyframe vendor prefixes
+@include keyframes(blinker) {
+  
+  0%, 50% {
+    border-width: 8px;
+  }
+  
+  51%, 100% {
+    border-width: 0;
+  }
+}

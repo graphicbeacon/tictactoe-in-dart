@@ -4,3 +4,9 @@ description: A Tic Tac Toe game written in Dart.
 dependencies:
   browser: any
   unittest: any
+transformers:
+- $dart2js:
+    checked: true
+    minify: true
+    terse: true
+    verbose: true

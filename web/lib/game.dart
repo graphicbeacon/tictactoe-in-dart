@@ -34,7 +34,8 @@ class Game extends Object with Joypad {
     void start() {
 
       // Insert into page
-      document.body.children.insert(1, board.generate());
+      document.body..classes.add('loaded')
+                   ..children.insert(0, board.generate());
       
       setButtonEvents(joypadButtonPressListener);
     }
@@ -93,12 +94,12 @@ class Game extends Object with Joypad {
       // else paint cell with player token
       board.paintSelectedCell(cellIndex, playerToken);
       
-      checkWinner();
+      if(isWinner == false) checkWinner();
       
       // Set turns for each player
       (_currentPlayer == 0) ? ++_currentPlayer : --_currentPlayer;
       
-      checkDraw();
+      if(isWinner == false) checkDraw();
 
     }
     
@@ -110,7 +111,7 @@ class Game extends Object with Joypad {
 
         if( board.cells[winningCombination[0] - 1].token == playerToken && 
           board.cells[winningCombination[1] - 1].token == playerToken &&
-          board.cells[winningCombination[2] - 1].token == playerToken ) {
+          board.cells[winningCombination[2] - 1].token == playerToken) {
 
           var playerNumber = _currentPlayer + 1;
 
@@ -146,7 +147,7 @@ class Game extends Object with Joypad {
 
       if (filledCells == board.cells.length) {
 
-        //window.alert('Its a draw!');
+        window.alert('Its a draw!');
 
         isDraw = true;
 
