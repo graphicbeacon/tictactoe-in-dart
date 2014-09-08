@@ -3,10 +3,5 @@ author: Jermaine Oppong
 description: A Tic Tac Toe game written in Dart.
 dependencies:
   browser: any
+  http_server: any
   unittest: any
-transformers:
-- $dart2js:
-    checked: true
-    minify: true
-    terse: true
-    verbose: true
