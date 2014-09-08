@@ -3,7 +3,7 @@ import 'package:http_server/http_server.dart';
 
 void main() {
   final HTTP_ROOT_PATH = Platform.script.resolve('build/web').toFilePath();
-  final host = InternetAddress.LOOPBACK_IP_V6;
+  final host = InternetAddress.LOOPBACK_IP_V4;
   final port = 4678;
   VirtualDirectory virDir;
   
