@@ -11,7 +11,7 @@ void main() {
   print(HTTP_ROOT_PATH);
   
   void directoryHandler(dir, request) {
-    var indexUri = new Uri.file(dir.path).resolve('tictactoe.html');
+    var indexUri = new Uri.file(dir.path).resolve('index.html');
     virDir.serveFile(new File(indexUri.toFilePath()), request);
   }
   
