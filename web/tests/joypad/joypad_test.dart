@@ -3,10 +3,19 @@ import 'dart:html';
 import '../../lib/game.dart';
 
 void main() {
+
+  Game game;
+
+  setUp(() {
+    game = new Game('#Stage')..start();
+  });
+
+  tearDown(() {
+    game = null;  
+  });
   
-  Game game = new Game()..start();
-  
-  test("Listen for pressed button",() {
-    
+  // TODO: Write joypad implementation tests
+  test("Listen for pressed button", () {
+
   });
 }
